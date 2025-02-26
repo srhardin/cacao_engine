@@ -32,6 +32,6 @@
 *.app
 
 # Ignored
-Cacao_2.0/
+CacaoEngine/
 x64/
 build/
