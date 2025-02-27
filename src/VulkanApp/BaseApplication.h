@@ -6,7 +6,8 @@
 #define GLFW_EXPOSE_NATIVE_WIN32
 #include <GLFW/glfw3native.h>
 
-#include <iostream>
+#include "../Utilities.h"
+
 #include <stdexcept>
 #include <cstdlib>
 #include <optional>
@@ -15,14 +16,12 @@
 #include <algorithm>
 
 // Data structures
-#include <vector>
 #include <map>
 #include <set>
 
 // The current control mechanism for the initialization logs. This may change
 // in future versions, probably to a cmd line launcher arg
 #define VERBOSE_LOGS
-
 class BaseApplication
 {
 public:
@@ -59,6 +58,27 @@ private:
     VkFormat swapChainFormat;
     VkExtent2D swapChainExtent;
 
+    // ImageViews
+    std::vector<VkImageView> swapChainImageViews;
+
+    // Pipeline
+    VkPipelineLayout pipelineLayout;
+    VkRenderPass renderPass;
+    VkPipeline graphicsPipeline;
+
+    // Framebuffer
+    std::vector<VkFramebuffer> swapChainFramebuffers;
+
+    // Command Buffers
+    VkCommandBuffer commandBuffer;
+        // Command Pool
+        VkCommandPool commandPool;
+
+    // Multi-threading
+    VkSemaphore imageAvailableSemaphore;
+    VkSemaphore renderFinishedSemaphore;
+    VkFence inFlightFence;
+
     VkPhysicalDevice physicalDevice;
     VkDebugUtilsMessengerEXT debugMessenger;
 
@@ -93,6 +113,9 @@ private:
     void MainLoop();
     void Cleanup();
 
+    // DrawCall
+    void DrawFrame();
+
     // Surface | WSI
     void CreateSurface();
 
@@ -109,6 +132,9 @@ private:
     VkExtent2D ChooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities);
     VkPresentModeKHR ChooseSwapPresentMode(const std::vector<VkPresentModeKHR>& availablePresentModes);
 
+    // ImageViews
+    void CreateImageViews();
+
     // Physical Device
     void PickPhysicalDevice();
     bool IsDeviceSuitable(VkPhysicalDevice device);
@@ -118,6 +144,25 @@ private:
 
     // Logical Device
     void CreateLogicalDevice();
+
+    // RenderPass
+    void CreateRenderPass();
+
+    // Graphics Pipeline
+    void CreateGraphicsPipeline();
+        // Shaders
+        VkShaderModule CreateShaderModule(const std::vector<char>& code);
+
+    // FrameBuffers
+    void CreateFramebuffers();
+
+    // CommandBuffer
+    void CreateCommandPool();
+    void CreateCommandBuffer();
+    void RecordCommandBuffer(VkCommandBuffer commandBuffer, uint32_t imageIndex);
+
+    // Multithreading
+    void CreateSyncObjects();
 
     // Debug
     void SetupDebugMessenger();

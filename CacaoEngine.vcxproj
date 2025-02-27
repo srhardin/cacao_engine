@@ -142,6 +142,8 @@
     <ClCompile Include="src\VulkanApp\BaseApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\CommonIncludes.h" />
+    <ClInclude Include="src\Utilities.h" />
     <ClInclude Include="src\VulkanApp\BaseApplication.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
