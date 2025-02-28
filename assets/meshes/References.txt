@@ -1,0 +1,209 @@
+@misc{armadillo-mesh,
+  title = {{Armadillo}},
+  author = {{The Stanford 3D Scanning Repository}},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/armadillo}. Original mesh by V. Krishnamurthy and M. Levoy "Fitting Smooth Surfaces to Dense Polygon Meshes" (SIGGRAPH 1996)},
+  year = {2023}
+}
+
+@misc{boat-mesh,
+  title = {{Boat}},
+  author = {Stein, Oded and Grinspun, Eitan and Crane, Keenan},
+  note = {Downloaded from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/boat}. Asset licensed under CC BY 4.0.},
+  year = {2019}
+}
+
+@misc{boot-mesh,
+  title = {{Boot}},
+  author = {inciprocal},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/boot}, originally from \url{sketchfab.com/3d-models/harrison-work-boot-d9506d9a318e4c56ac3d8ab273bd2540}. Asset licensed under CC BY 4.0.},
+  year = {2023}
+}
+
+@misc{bunny-mesh,
+  title = {{Bunny}},
+  author = {{The Stanford 3D Scanning Repository}},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/bunny}. Original mesh at \url{graphics.stanford.edu/data/3Dscanrep}.},
+  year = {2021}
+}
+
+@misc{cat-mesh,
+  title = {{Cat}},
+  author = {billyd},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/cat}, originally from \url{thingiverse.com/thing:1565405}. Asset licensed under CC BY 4.0.},
+  year = {2023}
+}
+
+@misc{cow-mesh,
+  title = {{Cow}},
+  author = {3dcs_ch},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/cow}, originally from \url{thingiverse.com/thing:2431906}. Asset licensed under CC BY 4.0.},
+  year = {2023}
+}
+
+@misc{cube-mesh,
+  title = {{Cube}},
+  author = {Stein, Oded},
+  note = {Downloaded from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/cube}. Asset licensed under CC BY 4.0.},
+  year = {2022}
+}
+
+@misc{demosthenes-mesh,
+  title = {{Demosthenes}},
+  author = {ryanfb},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/demosthenes}, originally from \url{sketchfab.com/3d-models/louvre-demosthenes-photoscan-cf5d9dd9bf4a457c95dc76e17848727b}. Asset licensed under CC BY 4.0.},
+  year = {2021}
+}
+
+@misc{falconstatue-mesh,
+  title = {{Falcon statue}},
+  author = {colinfizgig},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/falconstatue}, originally from \url{thingiverse.com/thing:46631}. Asset licensed under CC BY-NC-SA 4.0.},
+  year = {2021}
+}
+
+@misc{fish-mesh,
+  title = {{Fish}},
+  author = {Crane, Keenan},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/fish}, originally from \url{cs.cmu.edu/~kmcrane/Projects/ModelRepository}.},
+  year = {2019}
+}
+
+@misc{hand-mesh,
+  title = {{Hand}},
+  author = {{Max Planck Society e.V via SMPL}},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/hand}, adapted from M. Loper, N. Mahmood, J. Romero, G. Pons-Moll, M. Black "SMPL" (SIGGRAPH Asia 2015). Asset licensed under CC BY 4.0.},
+  year = {2021}
+}
+
+@misc{house,
+  title = {{House}},
+  author = {BSGMiniatures},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/house}, originally from \url{thingiverse.com/thing:3621726}. Asset licensed under CC BY-NC 4.0.},
+  year = {2019}
+}
+
+@misc{koala-mesh,
+  title = {{Koala}},
+  author = {YahooJAPAN},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/koala}, originally from \url{thingiverse.com/thing:182225}. Asset licensed under CC BY 3.0.},
+  year = {2019}
+}
+
+@misc{lionstatue-mesh,
+  title = {{Lion statue}},
+  author = {tomburtonwood},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/lionstatue}, originally from \url{thingiverse.com/thing:25832}. Asset licensed under CC BY 3.0.},
+  year = {2021}
+}
+
+@misc{mountain-mesh,
+  title = {{Mountain}},
+  author = {lastloginname},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/mountain}, originally from \url{thingiverse.com/thing:991578}. Asset licensed under CC BY 4.0.},
+  year = {2020}
+}
+
+@misc{mushroom-mesh,
+  title = {{Mushroom}},
+  author = {Holinaty, Josh},
+  note = {Downloaded from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/mushroom}. Asset licensed under CC BY-NC 4.0.},
+  year = {2023}
+}
+
+@misc{nefertiti-mesh,
+  title = {{Nefertiti}},
+  author = {Al-Badri, Nora and Nelles, Jan Nikolai},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/nefertiti}.},
+  year = {2023}
+}
+
+@misc{penguin-mesh,
+  title = {{Penguin}},
+  author = {Stein, Oded},
+  note = {Downloaded from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/pengiun}. Asset licensed under CC BY 4.0.},
+  year = {2023}
+}
+
+@misc{plane-mesh,
+  title = {{Plane}},
+  author = {YahooJAPAN},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/plane}, originally from \url{thingiverse.com/thing:182252}. Asset licensed under CC BY 3.0.},
+  year = {2019}
+}
+
+@misc{skull-mesh,
+  title = {{Skull}},
+  author = {YahooJAPAN},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/skull}, originally from \url{thingiverse.com/thing:182365}. Asset licensed under CC BY 3.0.},
+  year = {2019}
+}
+
+@misc{sphere-mesh,
+  title = {{Sphere}},
+  author = {Stein, Oded},
+  note = {Downloaded from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/sphere}. Asset licensed under CC BY 4.0.},
+  year = {2020}
+}
+
+@misc{spot-mesh,
+  title = {{Spot}},
+  author = {Crane, Keenan},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/spot}, originally from \url{cs.cmu.edu/~kmcrane/Projects/ModelRepository}.},
+  year = {2019}
+}
+
+@misc{springer-mesh,
+  title = {{Springer}},
+  author = {TimEdwards},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/springer}, originally from \url{thingiverse.com/thing:335658}. Asset licensed under GPLv2},
+  year = {2023}
+}
+
+@misc{strawberry-mesh,
+  title = {{Strawberry}},
+  author = {GSC_Nakamura},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/strawberry}, originally from \url{thingiverse.com/thing:153548}. Asset licensed under CC BY 4.0.},
+  year = {2021}
+}
+
+@misc{sword-mesh,
+  title = {{Sword}},
+  author = {{The Oakeshott Institute}},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/sword}, originally from \url{sketchfab.com/3d-models/moonbrand-early-14th-c-arming-sword-80fa91fc8c974fd0acd2a55cc513edec}. Asset licensed under CC BY 4.0.},
+  year = {2023}
+}
+
+@misc{torus-mesh,
+  title = {{Torus}},
+  author = {Stein, Oded},
+  note = {Downloaded from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/torus}. Asset licensed under CC BY 4.0.},
+  year = {2020}
+}
+
+@misc{tower-mesh,
+  title = {{Tower}},
+  author = {jansentee3d},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/tower}, originally from \url{thingiverse.com/thing:3155868}. Asset licensed under CC BY-NC 3.0.},
+  year = {2021}
+}
+
+@misc{tree-mesh,
+  title = {{Tree}},
+  author = {warmarine759},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/tree}, originally from \url{thingiverse.com/thing:3839198}. Asset licensed under CC BY 4.0.},
+  year = {2024}
+}
+
+@misc{violin-mesh,
+  title = {{Violin}},
+  author = {{Virtual Museums of Ma\l{}opolska}},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/violin}, originally from \url{sketchfab.com/3d-models/violin-a784af0713a643b19ffcf65194bc0fbf}.},
+  year = {2023}
+}
+
+@misc{well,
+  title = {{Well}},
+  author = {onmioji},
+  note = {Downloaded modified version from odedstein-meshes \url{github.com/odedstein/meshes/tree/master/objects/well}, originally from \url{thingiverse.com/thing:3587292}. Asset licensed under CC BY-NC 4.0.},
+  year = {2019}
+}
