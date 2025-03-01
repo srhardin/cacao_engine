@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CommonIncludes.h" />
+    <ClInclude Include="src\Defines.h" />
     <ClInclude Include="src\Utilities.h" />
     <ClInclude Include="src\VulkanApp\BaseApplication.h" />
   </ItemGroup>

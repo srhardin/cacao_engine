@@ -107,10 +107,7 @@ void BaseApplication::DrawFrame()
     submitInfo.signalSemaphoreCount = 1;
     submitInfo.pSignalSemaphores = signalSemaphores;
 
-    if (vkQueueSubmit(graphicsQueue, 1, &submitInfo, inFlightFence) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed ot submit draw command buffer!");
-    }
+    VerifyResult(vkQueueSubmit(graphicsQueue, 1, &submitInfo, inFlightFence), "Submitting draw command buffers");
 
     VkPresentInfoKHR presentInfo{};
     presentInfo.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
@@ -130,10 +127,7 @@ void BaseApplication::DrawFrame()
 #pragma region Surface | WSI
 void BaseApplication::CreateSurface()
 {
-    if (glfwCreateWindowSurface(instance, window, nullptr, &surface) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to create window surface");
-    }
+    VerifyResult(glfwCreateWindowSurface(instance, window, nullptr, &surface), "Creating window surface");
 }
 #pragma endregion
 
@@ -201,10 +195,7 @@ void BaseApplication::CreateInstance()
     }
 
     // VKInstance
-    if (vkCreateInstance(&createInfo, nullptr, &instance) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to create Vulkan instance");
-    }
+    VerifyResult(vkCreateInstance(&createInfo, nullptr, &instance), "Creating Vulkan instance");
 
     // Extensions
     uint32_t extensionCount = 0;
@@ -306,10 +297,7 @@ void BaseApplication::CreateSwapChain()
     createInfo.clipped = VK_TRUE;
     createInfo.oldSwapchain = VK_NULL_HANDLE;
 
-    if (vkCreateSwapchainKHR(device, &createInfo, nullptr, &swapChain) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to create swap chain!");
-    }
+    VerifyResult(vkCreateSwapchainKHR(device, &createInfo, nullptr, &swapChain), "Creating swap chain");
 
     vkGetSwapchainImagesKHR(device, swapChain, &imageCount, nullptr);
     swapChainImages.resize(imageCount);
@@ -423,10 +411,7 @@ void BaseApplication::CreateImageViews()
         createInfo.subresourceRange.baseArrayLayer = 0;
         createInfo.subresourceRange.layerCount = 1;
 
-        if (vkCreateImageView(device, &createInfo, nullptr, &swapChainImageViews[i]) != VK_SUCCESS)
-        {
-            throw std::runtime_error("failed to created image views!");
-        }
+        VerifyResult(vkCreateImageView(device, &createInfo, nullptr, &swapChainImageViews[i]), "Creating image views");
     }
 }
 #pragma endregion
@@ -564,10 +549,7 @@ void BaseApplication::SetupDebugMessenger()
     createInfo.pfnUserCallback = VulkanDebugCallback;
     createInfo.pUserData = nullptr;
 
-    if (CreateDebugUtilsMessengerEXT(&createInfo, nullptr, &debugMessenger) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to setup debug messenger");
-    }
+    VerifyResult(CreateDebugUtilsMessengerEXT(&createInfo, nullptr, &debugMessenger), "Setting up debug messenger");
 }
 
 VkResult BaseApplication::CreateDebugUtilsMessengerEXT(const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, 
@@ -675,10 +657,7 @@ void BaseApplication::CreateLogicalDevice()
         createInfo.enabledLayerCount = 0;
     }
 
-    if (vkCreateDevice(physicalDevice, &createInfo, nullptr, &device) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to create logical device!");
-    }
+    VerifyResult(vkCreateDevice(physicalDevice, &createInfo, nullptr, &device), "Creating logical device");
 
     // Store the queue in index zero for now
     // Potentially use a vector for this in the future? Handle multiple queues in the future?
@@ -731,10 +710,7 @@ void BaseApplication::CreateRenderPass()
     renderPassInfo.dependencyCount = 1;
     renderPassInfo.pDependencies = &dependency;
 
-    if (vkCreateRenderPass(device, &renderPassInfo, nullptr, &renderPass) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to create render pass!");
-    }
+    VerifyResult(vkCreateRenderPass(device, &renderPassInfo, nullptr, &renderPass), "Creating render pass");
 }
 #pragma endregion
 
@@ -852,10 +828,7 @@ void BaseApplication::CreateGraphicsPipeline()
     pipelineLayoutInfo.pushConstantRangeCount = 0;
     pipelineLayoutInfo.pPushConstantRanges = nullptr;
 
-    if (vkCreatePipelineLayout(device, &pipelineLayoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to create pipeline layout!");
-    }
+    VerifyResult(vkCreatePipelineLayout(device, &pipelineLayoutInfo, nullptr, &pipelineLayout), "Creating pipeline layout");
 
     // Pipeline
     VkGraphicsPipelineCreateInfo pipelineInfo{};
@@ -879,10 +852,7 @@ void BaseApplication::CreateGraphicsPipeline()
     pipelineInfo.basePipelineHandle = VK_NULL_HANDLE;
     pipelineInfo.basePipelineIndex = -1;
 
-    if (vkCreateGraphicsPipelines(device, VK_NULL_HANDLE, 1, &pipelineInfo, nullptr, &graphicsPipeline) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to create graphics pipeline!");
-    }
+    VerifyResult(vkCreateGraphicsPipelines(device, VK_NULL_HANDLE, 1, &pipelineInfo, nullptr, &graphicsPipeline), "Creating graphics pipeline");
 
     // Cleanup
     vkDestroyShaderModule(device, fragShaderModule, nullptr);
@@ -897,10 +867,7 @@ VkShaderModule BaseApplication::CreateShaderModule(const std::vector<char>& code
     createInfo.pCode = reinterpret_cast<const uint32_t*>(code.data());
 
     VkShaderModule shaderModule;
-    if (vkCreateShaderModule(device, &createInfo, nullptr, &shaderModule) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to create shader module");
-    }
+    VerifyResult(vkCreateShaderModule(device, &createInfo, nullptr, &shaderModule), "Creating shader module");
 
     return shaderModule;
 }
@@ -927,10 +894,7 @@ void BaseApplication::CreateFramebuffers()
         framebufferInfo.height = swapChainExtent.height;
         framebufferInfo.layers = 1;
 
-        if (vkCreateFramebuffer(device, &framebufferInfo, nullptr, &swapChainFramebuffers[i]) != VK_SUCCESS)
-        {
-            throw std::runtime_error("failed to create framebuffer!");
-        }
+        VerifyResult(vkCreateFramebuffer(device, &framebufferInfo, nullptr, &swapChainFramebuffers[i]), "Creating framebuffer");
     }
 }
 #pragma endregion
@@ -945,10 +909,7 @@ void BaseApplication::CreateCommandPool()
     poolInfo.flags = VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT;
     poolInfo.queueFamilyIndex = queueFamilyIndices.graphicsFamily.value();
 
-    if (vkCreateCommandPool(device, &poolInfo, nullptr, &commandPool) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to create command pool!");
-    }
+    VerifyResult(vkCreateCommandPool(device, &poolInfo, nullptr, &commandPool), "Creating command pool");
 }
 
 void BaseApplication::CreateCommandBuffer()
@@ -959,10 +920,7 @@ void BaseApplication::CreateCommandBuffer()
     allocInfo.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
     allocInfo.commandBufferCount = 1;
 
-    if (vkAllocateCommandBuffers(device, &allocInfo, &commandBuffer) != VK_SUCCESS)
-    {
-        throw std::runtime_error("fialed to allocate command buffer!");
-    }
+    VerifyResult(vkAllocateCommandBuffers(device, &allocInfo, &commandBuffer), "Allocating command buffer");
 }
 
 void BaseApplication::RecordCommandBuffer(VkCommandBuffer commandBuffer, uint32_t imageIndex)
@@ -972,10 +930,7 @@ void BaseApplication::RecordCommandBuffer(VkCommandBuffer commandBuffer, uint32_
     beginInfo.flags = 0;
     beginInfo.pInheritanceInfo = nullptr;
 
-    if (vkBeginCommandBuffer(commandBuffer, &beginInfo) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to begin recording command buffer!");
-    }
+    VerifyResult(vkBeginCommandBuffer(commandBuffer, &beginInfo), "Recording command buffer");
 
     VkRenderPassBeginInfo renderPassInfo{};
     renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
@@ -1015,10 +970,7 @@ void BaseApplication::RecordCommandBuffer(VkCommandBuffer commandBuffer, uint32_
 
     vkCmdEndRenderPass(commandBuffer);
 
-    if (vkEndCommandBuffer(commandBuffer) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to record command buffer!");
-    }
+    VerifyResult(vkEndCommandBuffer(commandBuffer), "Recording command buffer");
 }
 #pragma endregion
 
@@ -1032,11 +984,8 @@ void BaseApplication::CreateSyncObjects()
     fenceInfo.sType = VK_STRUCTURE_TYPE_FENCE_CREATE_INFO;
     fenceInfo.flags = VK_FENCE_CREATE_SIGNALED_BIT;
 
-    if (vkCreateSemaphore(device, &semaphoreInfo, nullptr, &imageAvailableSemaphore) != VK_SUCCESS ||
-        vkCreateSemaphore(device, &semaphoreInfo, nullptr, &renderFinishedSemaphore) != VK_SUCCESS ||
-        vkCreateFence(device, &fenceInfo, nullptr, &inFlightFence) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to create semaphores!");
-    }
+    VerifyResult(vkCreateSemaphore(device, &semaphoreInfo, nullptr, &imageAvailableSemaphore), "Creating Semaphore");
+    VerifyResult(vkCreateSemaphore(device, &semaphoreInfo, nullptr, &renderFinishedSemaphore), "Creating Semaphore");
+    VerifyResult(vkCreateFence(device, &fenceInfo, nullptr, &inFlightFence), "Creating Fence");
 }
 #pragma endregion

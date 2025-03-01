@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CommonIncludes.h"
+#include "Defines.h"
 
 static std::vector<char> readFile(const std::string& filename)
 {
@@ -21,4 +22,19 @@ static std::vector<char> readFile(const std::string& filename)
 
     file.close();
     return buffer;
+}
+
+static void VerifyResult(VkResult result, std::string type)
+{
+    if (result != VK_SUCCESS)
+    {
+        std::string message = "Error at graphics step: " + type;
+        throw std::runtime_error(message);
+    }
+#ifdef VERBOSE_LOGS
+    else
+    {
+        std::cout << "Completed step: " << type << std::endl;
+    }
+#endif
 }
